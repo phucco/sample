@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+<head>
 
-        @include('backend.layout.head')
+    @include('backend.layout.head')
 
-	</head>
+</head>
 
-    <body class="hold-transition sidebar-mini">
-        <div class="wrapper">
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
 
-            @include('backend.layout.navbar')
+    @include('backend.layout.navbar')
 
-            @include('backend.layout.sidebar')
+    @include('backend.layout.sidebar')
 
-            @yield('content')
+    @yield('content')
 
-        </div>
+</div>
 
-        @include('backend.layout.footer')
+@include('backend.layout.footer')
 
-    </body>
+</body>
 
 </html>
