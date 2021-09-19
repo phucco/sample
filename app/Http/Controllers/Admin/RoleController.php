@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Services\RoleService;
+use App\Http\Requests\RoleRequest;
+use App\Models\Role;
 
 class RoleController extends Controller
 {
-    public function __construct()
+    public function __construct(RoleService $roleService)
     {
-        $this->middleware('admin');
+        // $this->middleware('admin');
+        $this->roleService = $roleService;
     }
 
     /**
@@ -19,7 +23,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        dd('role controller index');
+        $roles = $this->roleService->getAll();
+
+        return view('backend.role.index', ['roles' => $roles]);
     }
 
     /**
@@ -29,7 +35,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.role.create');
     }
 
     /**
@@ -38,9 +44,13 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        //
+        $result = $this->roleService->create($request);
+
+        if ($result) return redirect()->route('admin.roles.index')->with('success', 'Role has been created.');
+
+        return back()->withInput()->with('error', 'Please try again later.');
     }
 
     /**
@@ -49,9 +59,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Role $role)
     {
-        //
+        return view('backend.role.show', ['role' => $role]);
     }
 
     /**
@@ -60,9 +70,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        return view('backend.role.edit', ['role' => $role]);
     }
 
     /**
@@ -72,9 +82,13 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, Role $role)
     {
-        //
+        $result = $this->roleService->update($request, $role);
+
+        if ($result) return redirect()->route('admin.roles.index')->with('success', 'Role has been updated.');
+
+        return back()->withInput()->with('error', 'Please try again later.');
     }
 
     /**
@@ -83,8 +97,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        //
+        $result = $this->roleService->destroy($role);
+
+        if ($result) return redirect()->route('admin.roles.index')->with('success', 'Role has been deleted.');
+
+        return back()->withInput()->with('error', 'Please try again later.');
     }
 }

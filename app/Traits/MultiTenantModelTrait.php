@@ -9,11 +9,11 @@ trait MultiTenantModelTrait
     public static function bootMultiTenantModelTrait()
     {
         static::creating(function ($model) {
-            $model->slug = Str::slug($model->title, '-');
+            $model->slug = Str::slug($model->name, '-');
         });
     }
 
-    public function getRouteKeyNameMultiTenantModelTrait()
+    public function getRouteKeyName()
     {
         return 'slug';
     }

@@ -11,6 +11,8 @@ class Role extends Model
     use HasFactory;
     use MultiTenantModelTrait;
 
+    protected $fillable = ['name'];
+
     public function permissions()
     {
         return $this->belongsToMany(Permission::class, 'roles_permissions');

@@ -28,12 +28,12 @@ $("#file").change(function () {
     });
 });
 
-function removeRow(id, url) {
+function removeRow(slug, url) {
     if (confirm('Không thể khôi phục sau khi xóa. Tiếp tục xóa?')) {
         $.ajax({
             type: 'DELETE',
             dataType: 'JSON',
-            data: {id},
+            data: {slug},
             url: url,
             success: function(result) {
                 if (result.error === false) {
@@ -46,3 +46,8 @@ function removeRow(id, url) {
         });
     }
 }
+
+$(".delete-button").click(function() {
+    alert('Are you sure?');
+});
+

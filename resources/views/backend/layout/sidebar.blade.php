@@ -60,18 +60,12 @@
 
                 <li class="nav-header">{{ __('SETTINGS') }}</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>Documentation</p>
+                    <a href="{{ route('admin.roles.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Roles</p>
                     </a>
                 </li>
                 <li class="nav-header">MISCELLANEOUS</li>
-                <li class="nav-item">
-                    <a href="iframe.html" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>Tabbed IFrame Plugin</p>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a href="https://adminlte.io/docs/3.1/" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
