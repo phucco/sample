@@ -28,12 +28,6 @@ class CategoryController extends Controller
         return view('backend.category.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(CategoryRequest $request)
     {
         $result = $this->categoryService->create($request);
@@ -43,35 +37,16 @@ class CategoryController extends Controller
         return back()->withInput()->with('error', 'Please try again later.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Category $category)
     {
         return view('backend.category.show', ['category' => $category]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Category $category)
     {
         return view('backend.category.edit', ['category' => $category]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(CategoryRequest $request, Category $category)
     {
         $result = $this->categoryService->update($request, $category);
@@ -81,12 +56,6 @@ class CategoryController extends Controller
         return back()->withInput()->with('error', 'Please try again later.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Category $category)
     {
         $result = $this->categoryService->destroy($category);

@@ -51,4 +51,9 @@ class CategoryService
 
 		return true;
 	}
+
+	public function getCategoryList()
+	{
+		return Category::get(['title', 'id']);
+	}
 }

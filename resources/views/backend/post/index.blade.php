@@ -6,9 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-primary">
+                    <a href="{{ route('admin.posts.create') }}" class="btn btn-primary mb-3">{{ __('Add new Post') }}</a>
+
+                    <div class="card card-light">
                         <div class="card-header">
-                            <h3 class="card-title">{{ $siteTitle }}</h3>
+                            <h3 class="card-title">{{ __('Posts') }}</h3>
                         </div>
                         <div class="card-body">
 
@@ -39,8 +41,13 @@
                                         <td>{{ $post->updated_at }}</td>
                                         <td>{{ $post->active == 1 ? 'Published' : 'Draft' }}</td>
                                         <td>
-                                            <a class="btn btn-primary btn-sm" href="{{ route('posts/edit', $post->slug) }}"><i class="fas fa-edit"></i></a>
-                                            <a class="btn btn-danger btn-sm" href="#" onclick="removeRow({{ $post->id }}, '{{ route('admin') }}/posts/destroy');"><i class="fas fa-trash"></i></a>
+                                            <form action="{{ route('admin.posts.destroy', $post) }}" method="post">
+                                                <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.show', $post) }}"><i class="fas fa-eye"></i></a>
+                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit', $post) }}"><i class="fas fa-edit"></i></a>                                     
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

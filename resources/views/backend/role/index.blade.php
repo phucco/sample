@@ -21,7 +21,7 @@
                                     <tr>
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Title') }}</th>
-                                        <th>{{ __('Update') }}</th>
+                                        <th>{{ __('Update at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
