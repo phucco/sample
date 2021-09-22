@@ -9,7 +9,7 @@ trait MultiTenantModelTrait
     public static function bootMultiTenantModelTrait()
     {
         static::creating(function ($model) {
-            $model->slug = Str::slug($model->name, '-');
+            $model->slug = Str::slug($model->title, '-');
         });
     }
 

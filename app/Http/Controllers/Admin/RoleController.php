@@ -27,61 +27,31 @@ class RoleController extends Controller
 
         return view('backend.role.index', ['roles' => $roles]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('backend.role.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(RoleRequest $request)
     {
         $result = $this->roleService->create($request);
 
-        if ($result) return redirect()->route('admin.roles.index')->with('success', 'Role has been created.');
+        if ($result) return redirect()->route('admin.roles.index')->with('success', 'New role has been created.');
 
         return back()->withInput()->with('error', 'Please try again later.');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Role $role)
     {
         return view('backend.role.show', ['role' => $role]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Role $role)
     {
         return view('backend.role.edit', ['role' => $role]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(RoleRequest $request, Role $role)
     {
         $result = $this->roleService->update($request, $role);
@@ -90,13 +60,7 @@ class RoleController extends Controller
 
         return back()->withInput()->with('error', 'Please try again later.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Role $role)
     {
         $result = $this->roleService->destroy($role);

@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <div class="card card-light">
                        <div class="card-header">
-                            <h3 class="card-title">{{ __('Add New Role') }}</h3>
+                            <h3 class="card-title">{{ __('Add new Role') }}</h3>
                         </div>
 
                         <form method="post" action="{{ route('admin.roles.store') }}">
@@ -19,9 +19,9 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <label for="name">{{ __('Name') }}</label>
-                                    <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
-                                    <small id="passwordHelpBlock" class="form-text text-muted">Slug will be auto-generated.</small>
+                                    <label for="title">{{ __('Title') }}</label>
+                                    <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" autofocus>
+                                    <small id="passwordHelpBlock" class="form-text text-muted">{{ __('Slug will be auto-generated.') }}</small>
                                 </div>
 
                             </div>

@@ -11,7 +11,7 @@ class Role extends Model
     use HasFactory;
     use MultiTenantModelTrait;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['title'];
 
     public function permissions()
     {

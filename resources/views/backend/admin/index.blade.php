@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('admin.roles.create') }}" class="btn btn-primary mb-3">{{ __('Add new Role') }}</a>
+                    <a href="{{ route('admin.admins.create') }}" class="btn btn-primary mb-3">{{ __('Add new Administrator') }}</a>
 
                     <div class="card card-light">
                         <div class="card-header">
-                            <h3 class="card-title">{{ __('Roles') }}</h3>
+                            <h3 class="card-title">{{ __('Administrators') }}</h3>
                         </div>
                         <div class="card-body">
 
@@ -20,22 +20,22 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Title') }}</th>
-                                        <th>{{ __('Update') }}</th>
+                                        <th>{{ __('Name') }}</th>
+                                        <th>{{ __('Email') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach($roles as $role)
+                                    @foreach($admins as $admin)
                                     <tr>
-                                        <td>{{ $role->id }}</td>
-                                        <td>{{ $role->title }}</td>
-                                        <td>{{ $role->updated_at }}</td>
+                                        <td>{{ $admin->id }}</td>
+                                        <td>{{ $admin->name }}</td>
+                                        <td>{{ $admin->email }}</td>
                                         <td>
-                                            <form action="{{ route('admin.roles.destroy', $role) }}" method="post">
-                                                <a class="btn btn-primary btn-sm" href="{{ route('admin.roles.show', $role) }}"><i class="fas fa-eye"></i></a>
-                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.roles.edit', $role) }}"><i class="fas fa-edit"></i></a>                                     
+                                            <form action="{{-- route('admin.admins.destroy', $admin) --}}" method="post">
+                                                <a class="btn btn-primary btn-sm" href="{{ route('admin.admins.show', $admin) }}"><i class="fas fa-eye"></i></a>
+                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.admins.edit', $admin) }}"><i class="fas fa-edit"></i></a>                                     
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
@@ -48,8 +48,8 @@
                                 <tfoot>
                                     <tr>
                                         <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Title') }}</th>
-                                        <th>{{ __('Update') }}</th>
+                                        <th>{{ __('Name') }}</th>
+                                        <th>{{ __('Email') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>

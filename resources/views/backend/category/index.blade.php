@@ -6,9 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-primary">
+                    <a href="{{ route('admin.categories.create') }}" class="btn btn-primary mb-3">{{ __('Add new Category') }}</a>
+
+                    <div class="card card-light">
                         <div class="card-header">
-                            <h3 class="card-title">{{ $siteTitle }}</h3>
+                            <h3 class="card-title">{{ __('Categories') }}</h3>
                         </div>
                         <div class="card-body">
 
@@ -35,8 +37,13 @@
                                         <td><img class="img-thumbnail" src="{{ $category->thumbnail }}"></td>
                                         <td>{{ $category->updated_at }}</td>
                                         <td>
-                                            <a class="btn btn-primary btn-sm" href="{{ route('categories/edit', $category->slug) }}"><i class="fas fa-edit"></i></a>
-                                            <a class="btn btn-danger btn-sm" href="#" onclick="removeRow({{ $category->id }}, '{{ route('admin') }}/categories/destroy');"><i class="fas fa-trash"></i></a>
+                                            <form action="{{ route('admin.categories.destroy', $category) }}" method="post">
+                                                <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.show', $category) }}"><i class="fas fa-eye"></i></a>
+                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.categories.edit', $category) }}"><i class="fas fa-edit"></i></a>                                     
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

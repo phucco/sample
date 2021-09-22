@@ -8,21 +8,24 @@
                 <div class="col-sm-12">
                     <div class="card card-light">
                        <div class="card-header">
-                            <h3 class="card-title">{{ __('Edit Role: ') . $role->title }}</h3>
+                            <h3 class="card-title">{{ __('Update Name and E-Mail') }}</h3>
                         </div>
 
-                        <form method="post" action="{{ route('admin.roles.update', $role) }}">
+                        <form method="post" action="{{ route('admin.admins.update', $admin) }}">
                             <div class="card-body">
 
                                 @include('backend.layout.alert')
 
                                 @csrf
-                                @method('PUT')
 
                                 <div class="form-group">
-                                    <label for="title">{{ __('Title') }}</label>
-                                    <input type="text" class="form-control" name="title" id="title" value="{{ $role->title }}" autofocus>
-                                    <small id="passwordHelpBlock" class="form-text text-muted">{{ __('Slug can not be changed.') }}</small>
+                                    <label for="name">{{ __('Name') }}</label>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $admin->name }}" required autocomplete="name" autofocus>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">{{ __('E-Mail Address') }}</label>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $admin->email }}" required autocomplete="email">
                                 </div>
 
                             </div>

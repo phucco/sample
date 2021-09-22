@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Permissions;
-
 
 use App\Models\Permission;
 use App\Models\Role;

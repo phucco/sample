@@ -1,4 +1,4 @@
-<!-- Navbar -->
+
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -18,10 +18,10 @@
                 <a href="#" class="dropdown-item">{{ __('New type of products') }}
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">{{ __('New post') }}
+                <a href="{{ route('admin.posts.index') }}" class="dropdown-item">{{ __('New post') }}
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">{{ __('New category') }}
+                <a href="{{ route('admin.categories.create') }}" class="dropdown-item">{{ __('New category') }}
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">{{ __('New slide') }}
@@ -53,7 +53,7 @@
             </div>
         </li>
 
-        <!-- Messages Dropdown Menu -->
+        
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-comments"></i>
@@ -108,7 +108,7 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
             </div>
         </li>
-        <!-- Notifications Dropdown Menu -->
+        
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>

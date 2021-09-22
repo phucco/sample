@@ -4,30 +4,6 @@ $.ajaxSetup({
     }
 });
 
-// Upload files
-$("#file").change(function () {
-    const form = new FormData();
-    form.append('file', $(this)[0].files[0]);
-
-    $.ajax({
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        dataType: 'JSON',
-        data: form,
-        url: '/admin/upload',
-        success: function (result) {
-            if (result.error === false) {
-                $("#thumbnail_preview").html('<a href="' + result.path + '" target="_blank"><img class="img-thumbnail" src="' + result.path + '"/></a>');
-                $("#thumbnail").val(result.path);
-            } else {
-                alert("Error uploading thumbnail");
-            }
-            console.log(result.error);
-        }
-    });
-});
-
 function removeRow(slug, url) {
     if (confirm('Không thể khôi phục sau khi xóa. Tiếp tục xóa?')) {
         $.ajax({
@@ -47,7 +23,61 @@ function removeRow(slug, url) {
     }
 }
 
-$(".delete-button").click(function() {
-    alert('Are you sure?');
+$(document).ready(function () {
+    $(".delete-button").click(function() {
+        alert('Are you sure?');
+    });
+
+    $("#file").change(function () {
+        const form = new FormData();
+        var file = $(this)[0].files[0];
+        if (file !== undefined) {
+            form.append('file', file);
+            form.append('module', $("#module").val());
+
+            $.ajax({
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                dataType: 'JSON',
+                data: form,
+                url: '/admin/upload/store',
+                success: function (result) {
+                    var oldPath = $("#thumbnail").val();
+                    if (result.error === false) {
+                        $("#thumbnail_preview").html('<a href="' + result.path + '" target="_blank"><img class="img-thumbnail" src="' + result.path + '"/></a>');
+                        $("#thumbnail").val(result.path);
+
+                        $.ajax({
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: {path: oldPath},
+                            url: '/admin/upload/delete',
+                            success: function (result) {
+                            }
+                        });
+                        
+                    } else {
+                        alert("Error uploading thumbnail");
+                    }
+                }
+            });
+        } else {
+            var oldPath = $("#thumbnail").val();
+            if (oldPath != '') {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {path: oldPath},
+                    url: '/admin/upload/delete',
+                    success: function (result) {
+                    }
+                });
+            }
+            $("#thumbnail").val('');
+            $("#thumbnail_preview").html('');
+        }      
+    });
 });
+
 

@@ -14,7 +14,7 @@ class RoleService
 	public function create($request)
 	{
 		try {
-			Role::create($request->only('name'));
+			Role::create($request->only('title'));
 		} catch (\Exception $error) {
 			return false;
 		}
@@ -25,18 +25,18 @@ class RoleService
 	public function update($request, $role)
 	{
 		try {
-			$role->update($request->only('name'));
-		}catch (\Exception $error) {
+			$role->update($request->only('title'));
+		} catch (\Exception $error) {
 			return false;
 		}
 
 		return true;
 	}
 
-	public function destroy($note)
+	public function destroy($role)
 	{
 		try {
-			$note->delete();
+			$role->delete();
 		} catch (\Exception $error) {
             return false;
 		}
