@@ -11,7 +11,7 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    protected $postService;
+    protected $postService, $categoryService;
 
     public function __construct(PostService $postService, CategoryService $categoryService)
     {

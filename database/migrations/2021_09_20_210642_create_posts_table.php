@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->text('title');
             $table->integer('admin_id');
             $table->integer('category_id');
-            $table->string('slug', 255);
+            $table->string('slug', 255)->unique();
             $table->string('description', 255)->nullable();
             $table->longText('content');
             $table->string('thumbnail')->nullable();

@@ -49,11 +49,15 @@
                                     <tr>
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Title') }}</th>
-                                        <th>{{ __('Update') }}</th>
+                                        <th>{{ __('Update at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>
+
+                            <div class="d-flex justify-content-center mt-3">
+                                {!! $roles->links('pagination::bootstrap-4') !!}      
+                            </div>
                         </div>
                     </div>
                 </div>

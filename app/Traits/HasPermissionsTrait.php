@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Permissions;
+namespace App\Traits;
 
 use App\Models\Permission;
 use App\Models\Role;
 
 trait HasPermissionsTrait
 {
-    /*public function givePermissionsTo(...$permissions)
+    public function givePermissionsTo(...$permissions)
     {
         $permissions = $this->getAllPermissions($permissions);
 
@@ -31,7 +31,7 @@ trait HasPermissionsTrait
         return $this->givePermissionsTo($permissions);
     }
 
-    public function hasPermissionTo($permission)
+    public function hasPermissionTo(...$permission)
     {
         return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);
     }
@@ -68,11 +68,11 @@ trait HasPermissionsTrait
 
     protected function hasPermission($permission)
     {
-        return (bool)$this->permissions->where('slug', $permission->slug)->count();
+        return (bool) $this->permissions->where('slug', $permission->slug)->count();
     }
 
     protected function getAllPermissions(array $permissions)
     {
         return Permission::whereIn('slug', $permissions)->get();
-    }*/
+    }
 }

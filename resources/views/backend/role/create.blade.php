@@ -24,6 +24,22 @@
                                     <small id="passwordHelpBlock" class="form-text text-muted">{{ __('Slug will be auto-generated.') }}</small>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="permissions">{{ __('Permissions') }}</label>
+                                </div>
+
+                                @foreach ($modules as $module)
+                                <div class="form-group">
+                                    <label>{{ ucfirst($module) }}</label></p>
+                                    @foreach ($actions as $action)
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="" name="{{ $action . '-' . $module }}" value="1">
+                                        <label class="form-check-label" for="">{{ ucwords($action . ' ' . $module) }}</label>
+                                    </div>
+                                    @endforeach
+                                </div>                                
+                                @endforeach
+
                             </div>
 
                             <div class="card-footer">

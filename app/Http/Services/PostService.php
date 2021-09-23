@@ -16,7 +16,7 @@ class PostService
 	
 	public function getAll()
 	{
-		return Post::with('category')->paginate();
+		return Post::with('category')->paginate(10);
 	}
 
 	public function create($request)

@@ -38,8 +38,16 @@
                                     <div class="col-md-6">
                                         <label for="password-confirm">{{ __('Confirm Password') }}</label>
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="123321" required autocomplete="new-password">
-                                    </div>
-                                    
+                                    </div>                                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="role">{{ __('Role') }}</label>
+                                    <select class="form-control" name="role">
+                                        @foreach ($roles as $role)
+                                        <option value="{{ $role->slug }}">{{ $role->title }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                             </div>

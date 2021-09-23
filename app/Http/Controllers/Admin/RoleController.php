@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Services\RoleService;
 use App\Http\Requests\RoleRequest;
 use App\Models\Role;
+use App\Helpers\Helper;
 
 class RoleController extends Controller
 {
@@ -30,7 +31,10 @@ class RoleController extends Controller
     
     public function create()
     {
-        return view('backend.role.create');
+        return view('backend.role.create', [
+            'modules' => Helper::getAllModules(),
+            'actions' => Helper::getAllActions(),
+        ]);
     }
     
     public function store(RoleRequest $request)
@@ -49,7 +53,11 @@ class RoleController extends Controller
     
     public function edit(Role $role)
     {
-        return view('backend.role.edit', ['role' => $role]);
+        return view('backend.role.edit', [
+            'role' => $role,
+            'modules' => Helper::getAllModules(),
+            'actions' => Helper::getAllActions(),
+        ]);
     }
     
     public function update(RoleRequest $request, Role $role)
@@ -68,5 +76,15 @@ class RoleController extends Controller
         if ($result) return redirect()->route('admin.roles.index')->with('success', 'Role has been deleted.');
 
         return back()->withInput()->with('error', 'Please try again later.');
+    }
+
+    public function attachPermission(Request $request)
+    {
+        $this->roleService->attachPermission($request);
+    }
+
+    public function detachPermission(Request $request)
+    {
+        $this->roleService->detachPermission($request);
     }
 }

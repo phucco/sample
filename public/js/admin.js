@@ -78,6 +78,33 @@ $(document).ready(function () {
             $("#thumbnail_preview").html('');
         }      
     });
+
+    $(".form-check-role-permission").click(function () {        
+        var roleSlug = $("input[name='roleSlug']").val();
+        var permissionSlug = $(this).attr('name');
+
+        if ($(this).prop("checked") === true) {
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {role: roleSlug, permission: permissionSlug},
+                url: '/admin/attach/roles/permissions',
+                success: function (result) {
+
+                }
+            });
+        } else if ($(this).prop("checked") === false) {
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {role: roleSlug, permission: permissionSlug},
+                url: '/admin/detach/roles/permissions',
+                success: function (result) {
+
+                }
+            });
+        }
+    });
 });
 
 

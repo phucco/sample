@@ -71,6 +71,12 @@
                         <p>{{ __('Roles') }}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.permissions.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user-times"></i>
+                        <p>{{ __('Permissions') }}</p>
+                    </a>
+                </li>
                 <li class="nav-header">MISCELLANEOUS</li>
                 <li class="nav-item">
                     <a href="https://adminlte.io/docs/3.1/" class="nav-link">

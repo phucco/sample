@@ -15,7 +15,7 @@ class CategoryService
 
 	public function getAll()
 	{
-		return Category::paginate();
+		return Category::paginate(10);
 	}
 
 	public function create($request)

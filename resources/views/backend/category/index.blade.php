@@ -55,11 +55,16 @@
                                         <th>{{ __('Title') }}</th>
                                         <th>{{ __('Description') }}</th>
                                         <th>{{ __('Thumbnail') }}</th>
-                                        <th>{{ __('Update') }}</th>
+                                        <th>{{ __('Update at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>
+
+                            
+                            <div class="d-flex justify-content-center mt-3">
+                                {!! $categories->links('pagination::bootstrap-4') !!}      
+                            </div>
                         </div>
                     </div>
                 </div>

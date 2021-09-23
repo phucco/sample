@@ -17,6 +17,7 @@
                             @include('backend.layout.alert')
 
                             <p>Name: {{ $admin->name }}</p>
+                            <p>{{ __('Role: ') . $admin->roles->implode('title', ', ') }}</p>
                             <p>E-Mail: {{ $admin->email }}</p>
                             <p>Created at: {{ $admin->created_at }}</p>
                         </div>

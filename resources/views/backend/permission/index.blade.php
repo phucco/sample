@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('admin.admins.create') }}" class="btn btn-primary mb-3">{{ __('Add new Administrator') }}</a>
+                    <a href="{{ route('admin.permissions.create') }}" class="btn btn-primary mb-3">{{ __('Add new Permission') }}</a>
 
                     <div class="card card-light">
                         <div class="card-header">
-                            <h3 class="card-title">{{ __('Administrators') }}</h3>
+                            <h3 class="card-title">{{ __('Permissions') }}</h3>
                         </div>
                         <div class="card-body">
 
@@ -20,22 +20,23 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Email') }}</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Update at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach($admins as $admin)
+                                    @foreach($permissions as $permission)
                                     <tr>
-                                        <td>{{ $admin->id }}</td>
-                                        <td>{{ $admin->name }}</td>
-                                        <td>{{ $admin->email }}</td>
+                                        <td>{{ $permission->id }}</td>
+                                        <td>{{ $permission->title }}</td>
+                                        <td>{{ $permission->slug }}</td>
+                                        <td>{{ $permission->updated_at }}</td>
                                         <td>
-                                            <form action="{{-- route('admin.admins.destroy', $admin) --}}" method="post">
-                                                <a class="btn btn-primary btn-sm" href="{{ route('admin.admins.show', $admin) }}"><i class="fas fa-eye"></i></a>
-                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.admins.edit', $admin) }}"><i class="fas fa-edit"></i></a>                                     
+                                            <form action="{{ route('admin.permissions.destroy', $permission) }}" method="post">
+                                                <a class="btn btn-primary btn-sm" href="{{ route('admin.permissions.show', $permission) }}"><i class="fas fa-eye"></i></a>                                  
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
@@ -48,15 +49,15 @@
                                 <tfoot>
                                     <tr>
                                         <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Email') }}</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Update at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>
-
                             <div class="d-flex justify-content-center mt-3">
-                                {!! $admins->links('pagination::bootstrap-4') !!}      
+                                {!! $permissions->links('pagination::bootstrap-4') !!}      
                             </div>
                         </div>
                     </div>

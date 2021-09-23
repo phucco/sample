@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Schema;
 
 trait MultiTenantModelTrait
 {
@@ -10,7 +11,9 @@ trait MultiTenantModelTrait
     {
         static::creating(function ($model) {
             $model->slug = Str::slug($model->title, '-');
-            $model->admin_id = auth()->id();
+            if (Schema::hasColumn($model->table, 'admin_id')) {
+                $model->admin_id = auth()->id();
+            }            
         });
     }
 
