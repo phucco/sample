@@ -28,6 +28,15 @@
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $admin->email }}" required autocomplete="email">
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="role">{{ __('Role') }}</label>
+                                    <select class="form-control" name="role">
+                                        @foreach ($roles as $role)
+                                        <option value="{{ $role->slug }}" {{ ($admin->roles[0]->slug == $role->slug) ? 'selected' : '' }}>{{ $role->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                             </div>
 
                             <div class="card-footer">

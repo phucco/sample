@@ -22,6 +22,7 @@
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Email') }}</th>
+                                        <th>{{ __('Roles') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
@@ -32,13 +33,14 @@
                                         <td>{{ $admin->id }}</td>
                                         <td>{{ $admin->name }}</td>
                                         <td>{{ $admin->email }}</td>
+                                        <td>{{ $admin->roles->implode('title', ', ') }}</td>
                                         <td>
                                             <form action="{{-- route('admin.admins.destroy', $admin) --}}" method="post">
                                                 <a class="btn btn-primary btn-sm" href="{{ route('admin.admins.show', $admin) }}"><i class="fas fa-eye"></i></a>
                                                 <a class="btn btn-warning btn-sm" href="{{ route('admin.admins.edit', $admin) }}"><i class="fas fa-edit"></i></a>                                     
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
+                                                {{-- <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button> --}}
                                             </form>
                                         </td>
                                     </tr>
@@ -50,6 +52,7 @@
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Email') }}</th>
+                                        <th>{{ __('Roles') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>

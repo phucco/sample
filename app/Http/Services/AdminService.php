@@ -32,8 +32,24 @@ class AdminService
 		return true;
 	}
 
-	public function show($id)
+	public function update($request, $admin)
 	{
-		return Admin::findOrFail($id);
+		try {
+			$admin->update($request->only('name', 'email'));
+
+			$roleSlug = $request->input('role');
+			$currentRoleSlug = $admin->roles[0]->title;
+
+			if ($roleSlug != $currentRoleSlug) {
+				$admin->roles()->detach(Role::where('slug', $currentRoleSlug)->first());
+				$role = Role::where('slug', $roleSlug)->first();
+	        	$admin->roles()->attach($role);
+			}
+
+		} catch (\Exception $error) {
+			return false;
+		}
+		
+		return true;
 	}
 }

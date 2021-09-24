@@ -49,11 +49,20 @@ class AdminController extends Controller
 
     public function edit(Admin $admin)
     {
-    	return view('backend.admin.edit', ['admin' => $admin]);
+        $roles = $this->roleService->getRoleList();
+
+    	return view('backend.admin.edit', [
+            'admin' => $admin,
+            'roles' => $roles
+        ]);
     }
 
     public function update(Request $request, Admin $admin)
     {
-    	dd($request);
+    	$result = $this->adminService->update($request, $admin);
+
+        if ($result) return redirect()->route('admin.admins.index')->with('success', 'Administrator has been updated.');
+
+        return back()->withInput()->with('error', 'Please try again later.');
     }
 }

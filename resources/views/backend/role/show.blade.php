@@ -18,7 +18,7 @@
 
                             <p>Title: {{ $role->title }}</p>
                             <p>Slug: {{ $role->slug }}</p>
-                            <p>{{ __('Permissions: ') . $role->permissions->implode('title', '<br/>') }}</p>
+                            <p>{{ __('Permissions: ') . $role->permissions->implode('title', ', ') }}</p>
                             <p>Created at: {{ $role->created_at }}</p>
                         </div>
                     </div>
