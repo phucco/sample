@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Traits\HasPermissionsTrait;
 
 class Admin extends Authenticatable
 {
     use HasFactory, Notifiable;
-    use HasPermissionsTrait;
 
     /**
      * The attributes that are mass assignable.

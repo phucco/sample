@@ -7,16 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Services\AdminService;
 use App\Http\Requests\AdminStoreRequest;
 use App\Models\Admin;
-use App\Http\Services\RoleService;
 
 class AdminController extends Controller
 {
-    protected $adminService, $roleService;
+    protected $adminService;
     
-	public function __construct(AdminService $adminService, RoleService $roleService)
+	public function __construct(AdminService $adminService)
 	{
 		$this->adminService = $adminService;
-        $this->roleService = $roleService;
 	}
 
     public function index()
@@ -27,10 +25,8 @@ class AdminController extends Controller
     }
 
     public function create()
-    {
-        $roles = $this->roleService->getRoleList();
-        
-    	return view('backend.admin.create', ['roles' => $roles]);
+    {        
+    	return view('backend.admin.create');
     }
 
     public function store(AdminStoreRequest $request)
@@ -49,12 +45,7 @@ class AdminController extends Controller
 
     public function edit(Admin $admin)
     {
-        $roles = $this->roleService->getRoleList();
-
-    	return view('backend.admin.edit', [
-            'admin' => $admin,
-            'roles' => $roles
-        ]);
+    	return view('backend.admin.edit', ['admin' => $admin]);
     }
 
     public function update(Request $request, Admin $admin)

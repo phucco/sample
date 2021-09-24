@@ -22,7 +22,6 @@
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Email') }}</th>
-                                        <th>{{ __('Roles') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
@@ -33,7 +32,6 @@
                                         <td>{{ $admin->id }}</td>
                                         <td>{{ $admin->name }}</td>
                                         <td>{{ $admin->email }}</td>
-                                        <td>{{ $admin->roles->implode('title', ', ') }}</td>
                                         <td>
                                             <form action="{{-- route('admin.admins.destroy', $admin) --}}" method="post">
                                                 <a class="btn btn-primary btn-sm" href="{{ route('admin.admins.show', $admin) }}"><i class="fas fa-eye"></i></a>
@@ -52,7 +50,6 @@
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Email') }}</th>
-                                        <th>{{ __('Roles') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>

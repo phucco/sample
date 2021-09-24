@@ -7,9 +7,7 @@ class Helper
 	private $modules = [
 		'posts',
 		'categories',
-		'admins',
-		'roles',
-		'permissions'
+		'admins'
 	];
 
 	public static function getAllModules()
@@ -17,9 +15,7 @@ class Helper
 		return [
 			'posts',
 			'categories',
-			'admins',
-			'roles',
-			'permissions'
+			'admins'
 		];
 	}
 

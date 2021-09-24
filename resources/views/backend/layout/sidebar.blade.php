@@ -16,7 +16,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()->roles[0]->title }}</a>
+                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
             </div>
         </div>
 
@@ -63,18 +63,6 @@
                     <a href="{{ route('admin.admins.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>{{ __('Administrators') }}</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.roles.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>{{ __('Roles') }}</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.permissions.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-user-times"></i>
-                        <p>{{ __('Permissions') }}</p>
                     </a>
                 </li>
                 <li class="nav-header">MISCELLANEOUS</li>

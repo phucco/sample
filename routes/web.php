@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -32,10 +30,6 @@ Route::get('admin/logout', [LoginController::class, 'logout'])->name('admin.logo
 Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'showDashboard'])->name('dashboard');
 
-    Route::resource('roles', RoleController::class);
-
-    Route::resource('permissions', PermissionController::class)->except('edit', 'update');
-
     Route::prefix('admins')->name('admins.')->group(function () {
     	Route::get('/', [AdminController::class, 'index'])->name('index');
     	Route::get('create', [AdminController::class, 'create'])->name('create');
@@ -51,7 +45,4 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
 
     Route::post('upload/store', [UploadController::class, 'store']);
     Route::post('upload/delete', [UploadController::class, 'delete']);
-
-    Route::post('attach/roles/permissions', [RoleController::class, 'attachPermission']);
-    Route::post('detach/roles/permissions', [RoleController::class, 'detachPermission']);
 });
