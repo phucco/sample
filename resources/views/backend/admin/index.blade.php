@@ -6,7 +6,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    @can('create admins')
                     <a href="{{ route('admin.admins.create') }}" class="btn btn-primary mb-3">{{ __('Add new Administrator') }}</a>
+                    @endcan
 
                     <div class="card card-light">
                         <div class="card-header">
@@ -22,6 +24,7 @@
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Email') }}</th>
+                                        <th>{{ __('Roles') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
@@ -32,14 +35,23 @@
                                         <td>{{ $admin->id }}</td>
                                         <td>{{ $admin->name }}</td>
                                         <td>{{ $admin->email }}</td>
+                                        <td>{{ $admin->getRoleNames() }}</td>
                                         <td>
-                                            <form action="{{-- route('admin.admins.destroy', $admin) --}}" method="post">
+                                            @can('delete admins')
+                                            <form action="{{ route('admin.admins.destroy', $admin) }}" method="post">
+                                            @endcan
+                                                @can('read admins')
                                                 <a class="btn btn-primary btn-sm" href="{{ route('admin.admins.show', $admin) }}"><i class="fas fa-eye"></i></a>
-                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.admins.edit', $admin) }}"><i class="fas fa-edit"></i></a>                                     
+                                                @endcan
+                                                @can('edit admins')
+                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.admins.edit', $admin) }}"><i class="fas fa-edit"></i></a>
+                                                @endcan
+                                            @can('delete admins')                                     
                                                 @csrf
                                                 @method('DELETE')
-                                                {{-- <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button> --}}
+                                                <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
                                             </form>
+                                            @endcan  
                                         </td>
                                     </tr>
                                     @endforeach
@@ -50,6 +62,7 @@
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Email') }}</th>
+                                        <th>{{ __('Roles') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>

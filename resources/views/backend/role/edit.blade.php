@@ -8,10 +8,10 @@
                 <div class="col-sm-12">
                     <div class="card card-light">
                        <div class="card-header">
-                            <h3 class="card-title">{{ __('Update Name and E-Mail') }}</h3>
+                            <h3 class="card-title">{{ __('Edit Role: ') . $role->name }}</h3>
                         </div>
 
-                        <form method="post" action="{{ route('admin.admins.update', $admin) }}">
+                        <form method="post" action="{{ route('admin.roles.update', $role) }}">
                             <div class="card-body">
 
                                 @include('backend.layout.alert')
@@ -21,23 +21,20 @@
 
                                 <div class="form-group">
                                     <label for="name">{{ __('Name') }}</label>
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $admin->name }}" required autocomplete="name" autofocus>
+                                    <input type="text" class="form-control" name="name" id="name" value="{{ $role->name }}" autofocus>
+                                    <small id="passwordHelpBlock" class="form-text text-muted">{{ __('Slug can not be changed.') }}</small>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email">{{ __('E-Mail Address') }}</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $admin->email }}" required autocomplete="email">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="roles">{{ __('Roles') }}</label>
-                                    @foreach($roles as $role)
+                                    <label for="permissions">{{ __('Permissions') }}</label>                                
+                                    @foreach ($permissions as $permission)
                                     <div class="form-check">
-                                        <input type="checkbox" name="roles[]" class="form-check-input" value="{{ $role->name }}" {{ ($admin->hasRole($role->name)) ? 'checked' : '' }}>
-                                        <label class="form-check-label">{{ $role->name }}</label>
+                                        <input type="checkbox" class="form-check-input" value="{{ $permission->name }}" name="permissions[]" {{ ($role->hasPermissionTo($permission->name)) ? 'checked' : '' }}>
+                                        <label class="form-check-label">{{ ucwords($permission->name) }}</label>
                                     </div>
                                     @endforeach
                                 </div>
+
                             </div>
 
                             <div class="card-footer">

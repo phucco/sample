@@ -140,10 +140,20 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.logout')  }}">
-                {{ __('Logout') }}
+
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <div class="user-panel pb-3 d-flex">
+                    <div class="image">
+                        <img src="http://sample.test/images/backend/user2-160x160.jpg" class="img-circle elevation-1" alt="User Image">
+                    </div>
+                </div>
             </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <a href="{{ route('admin.account') }}" class="dropdown-item">{{ __('My Account') }}</a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('admin.logout')  }}" class="dropdown-item">{{ __('Logout') }}</a>
+            </div>
         </li>
     </ul>
 </nav>

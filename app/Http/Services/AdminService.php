@@ -9,7 +9,7 @@ class AdminService
 {
 	public function getAll()
 	{
-		return Admin::orderBy('id', 'asc')->paginate(10);
+		return Admin::with('roles')->orderBy('id', 'asc')->paginate(10);
 	}
 
 	public function create($request)
@@ -20,6 +20,7 @@ class AdminService
 	            'email' => $request->input('email'),
 	            'password' => Hash::make($request->input('password')),
 	        ]);
+	        $admin->syncRoles($request->input('roles'));
 		} catch (\Exception $error) {
 			return false;
 		}
@@ -31,6 +32,18 @@ class AdminService
 	{
 		try {
 			$admin->update($request->only('name', 'email'));
+			$admin->syncRoles($request->input('roles'));
+		} catch (\Exception $error) {
+			return false;
+		}
+		
+		return true;
+	}
+
+	public function destroy($admin)
+	{
+		try {
+			$admin->delete();
 		} catch (\Exception $error) {
 			return false;
 		}

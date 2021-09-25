@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 use App\Http\Services\AdminService;
 use App\Http\Requests\AdminStoreRequest;
 use App\Models\Admin;
+use App\Http\Services\RoleService;
 
 class AdminController extends Controller
 {
-    protected $adminService;
+    protected $adminService, $roleService;
     
-	public function __construct(AdminService $adminService)
+	public function __construct(AdminService $adminService, RoleService $roleService)
 	{
 		$this->adminService = $adminService;
+        $this->roleService = $roleService;
+
+        $this->authorizeResource(Admin::class, 'admin');
 	}
 
     public function index()
@@ -25,8 +29,10 @@ class AdminController extends Controller
     }
 
     public function create()
-    {        
-    	return view('backend.admin.create');
+    {
+        $roles = $this->roleService->getRoleList();
+
+    	return view('backend.admin.create', ['roles' => $roles]);
     }
 
     public function store(AdminStoreRequest $request)
@@ -45,7 +51,9 @@ class AdminController extends Controller
 
     public function edit(Admin $admin)
     {
-    	return view('backend.admin.edit', ['admin' => $admin]);
+        $roles = $this->roleService->getRoleList();
+
+    	return view('backend.admin.edit', ['admin' => $admin, 'roles' => $roles]);
     }
 
     public function update(Request $request, Admin $admin)
@@ -53,6 +61,15 @@ class AdminController extends Controller
     	$result = $this->adminService->update($request, $admin);
 
         if ($result) return redirect()->route('admin.admins.index')->with('success', 'Administrator has been updated.');
+
+        return back()->withInput()->with('error', 'Please try again later.');
+    }
+
+    public function destroy(Admin $admin)
+    {
+        $result = $this->adminService->destroy($admin);
+
+        if ($result) return redirect()->route('admin.admins.index')->with('success', 'Administrator has been deleted.');
 
         return back()->withInput()->with('error', 'Please try again later.');
     }

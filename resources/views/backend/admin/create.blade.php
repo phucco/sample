@@ -40,6 +40,17 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="123321" required autocomplete="new-password">
                                     </div>                                    
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="roles">{{ __('Roles') }}</label>
+                                    @foreach($roles as $role)
+                                    <div class="form-check">
+                                        <input type="checkbox" name="roles[]" class="form-check-input" value="{{ $role->name }}">
+                                        <label>{{ $role->name }}</label>
+                                    </div>
+                                    @endforeach
+                                </div>
+
                             </div>
 
                             <div class="card-footer">

@@ -6,20 +6,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('admin.admins.index') }}" class="btn btn-primary mb-3">Return to Administrator List</a>
-
                     <div class="card card-light">
                         <div class="card-header">
-                            <h3 class="card-title">{{ __('Administrator: ') . $admin->name }}</h3>
+                            <h3 class="card-title">{{ __('My account') }}</h3>
                         </div>
                         <div class="card-body">
 
                             @include('backend.layout.alert')
 
-                            <p>Name: {{ $admin->name }}</p>
-                            <p>E-Mail: {{ $admin->email }}</p>
+                            <p>{{ __('Name: ') . $admin->name }}</p>
+                            <p>{{ __('Email: ') . $admin->email }}</p>
+                            <p>{{ __('ID: ') . $admin->id }}</p>
                             <p>{{ __('Roles: ') . $admin->getRoleNames() }}</p>
-                            <p>Created at: {{ $admin->created_at }}</p>
+                            <p>{{ __('Permissions: ') . $admin->getAllPermissions()->pluck('name') }}</p>
                         </div>
                     </div>
                 </div>

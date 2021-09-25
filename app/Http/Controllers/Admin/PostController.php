@@ -17,6 +17,7 @@ class PostController extends Controller
     {
         $this->postService = $postService;
         $this->categoryService = $categoryService;
+        $this->authorizeResource(Post::class, 'post');
     }
 
     public function index()

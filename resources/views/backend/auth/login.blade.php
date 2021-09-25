@@ -17,8 +17,7 @@
             <form method="post" action="{{ route('admin.login') }}">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control" value="{{-- old('email') --}}phuchm13@gmail.com" placeholder="Email"
-                           autocomplete="email">
+                    <input type="email" name="email" class="form-control" value="{{-- old('email') --}}a@b.c" placeholder="Email" autocomplete="email">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -26,7 +25,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Password" value="12345678" autocomplete="password">
+                    <input type="password" name="password" class="form-control" placeholder="Password" value="123321" autocomplete="password">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

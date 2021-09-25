@@ -16,7 +16,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+                <a href="#" class="d-block">{{ auth()->user()->roles->pluck('name') }}</a>
             </div>
         </div>
 
@@ -45,26 +45,48 @@
                     </a>
                 </li>
                 <li class="nav-header">{{ __('CONTENT') }}</li>
+                @can('view posts')
                 <li class="nav-item">
                     <a href="{{ route('admin.posts.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
                         <p>{{ __('Posts') }}</p>
                     </a>
                 </li>
+                @endcan
+                @can('view categories')
                 <li class="nav-item">
                     <a href="{{ route('admin.categories.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>{{ __('Categories') }}</p>
                     </a>
                 </li>
+                @endcan
 
                 <li class="nav-header">{{ __('SETTINGS') }}</li>
+                @can('view admins')
                 <li class="nav-item">
                     <a href="{{ route('admin.admins.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>{{ __('Administrators') }}</p>
                     </a>
                 </li>
+                @endcan
+                @can('view roles')
+                <li class="nav-item">
+                    <a href="{{ route('admin.roles.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>{{ __('Roles') }}</p>
+                    </a>
+                </li>
+                @endcan
+                @can('view permissions')
+                <li class="nav-item">
+                    <a href="{{ route('admin.permissions.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user-times"></i>
+                        <p>{{ __('Permissions') }}</p>
+                    </a>
+                </li>
+                @endcan
                 <li class="nav-header">MISCELLANEOUS</li>
                 <li class="nav-item">
                     <a href="https://adminlte.io/docs/3.1/" class="nav-link">
