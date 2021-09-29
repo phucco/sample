@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Services\PostService;
-use App\Http\Services\CategoryService;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\Admin\PostRequest;
+use App\Http\Services\Admin\PostService;
+use App\Http\Services\Admin\CategoryService;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -28,7 +27,7 @@ class PostController extends Controller
     }
 
     public function create()
-    {        
+    {
         $categories = $this->categoryService->getCategoryList();
 
         return view('backend.post.create', ['categories' => $categories]);

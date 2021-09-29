@@ -6,7 +6,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    @can('create permissions')
                     <a href="{{ route('admin.permissions.create') }}" class="btn btn-primary mb-3">{{ __('Add new Permission') }}</a>
+                    @endcan
 
                     <div class="card card-light">
                         <div class="card-header">
@@ -33,7 +35,9 @@
                                         <td>{{ $permission->name }}</td>
                                         <td>{{ $permission->updated_at }}</td>
                                         <td>
+                                            @can('view permissions')
                                             <a class="btn btn-primary btn-sm" href="{{ route('admin.permissions.show', $permission) }}"><i class="fas fa-eye"></i></a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     @endforeach

@@ -5,13 +5,13 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-        	    <div class="col-sm-12">
-                    <div class="card card-primary">
+                <div class="col-sm-12">
+                    <div class="card card-light">
                        <div class="card-header">
-                            <h3 class="card-title">{{ $siteTitle }}</h3>
+                            <h3 class="card-title">{{ __('Add new Type') }}</h3>
                         </div>
 
-                        <form method="post" action="">
+                        <form method="post" action="{{ route('admin.types.store') }}">
                             <div class="card-body">
 
                                 @include('backend.layout.alert')
@@ -31,10 +31,19 @@
                                 <div class="form-group">
                                     <label for="thumbnail">{{ __('Thumbnail') }}</label>
                                     <input type="file" class="form-control-file" id="file">
+                                    <input type="hidden" name="module" id="module" value="type">
                                     <input type="hidden" name="thumbnail" id="thumbnail">
                                 </div>
 
                                 <div id="thumbnail_preview" class="form-group"></div>
+
+                                <div class="form-inline">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="hidden" name="active" value="0">
+                                        <input class="form-check-input" type="checkbox" name="active" value="1">
+                                        <label class="form-check-label">{{ __('Active') }}</label>
+                                    </div>
+                                </div>
 
                             </div>
 

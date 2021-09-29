@@ -46,7 +46,7 @@
                                     @foreach($roles as $role)
                                     <div class="form-check">
                                         <input type="checkbox" name="roles[]" class="form-check-input" value="{{ $role->name }}">
-                                        <label>{{ $role->name }}</label>
+                                        <label class="form-check-label">{{ $role->name }}</label>
                                     </div>
                                     @endforeach
                                 </div>

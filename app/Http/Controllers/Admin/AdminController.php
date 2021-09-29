@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Services\AdminService;
-use App\Http\Requests\AdminStoreRequest;
+use App\Http\Requests\Admin\AdminStoreRequest;
+use App\Http\Services\Admin\AdminService;
+use App\Http\Services\Admin\RoleService;
 use App\Models\Admin;
-use App\Http\Services\RoleService;
 
 class AdminController extends Controller
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Services;
+namespace App\Http\Services\Admin;
 
-use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
 
 class AdminService
 {

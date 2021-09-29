@@ -26,20 +26,18 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
+                        <p>{{ __('Dashboard') }}</p>
                     </a>
                 </li>
                 <li class="nav-header">{{ __('PRODUCTS') }}</li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>{{ __('Products') }}</p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin.types.index') }}" class="nav-link">
                         <i class="nav-icon far fa-file"></i>
                         <p>{{ __('Types of Products') }}</p>
                     </a>

@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use Spatie\Permission\Models\Permission;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PermissionPolicy
@@ -15,7 +15,7 @@ class PermissionPolicy
         return $admin->can('view permissions');
     }
 
-    public function view(Admin $admin, Role $role)
+    public function view(Admin $admin, Permission $permission)
     {
         return $admin->can('read permissions');
     }
@@ -25,12 +25,12 @@ class PermissionPolicy
         return $admin->can('create permissions');
     }
 
-    public function update(Admin $admin, Role $role)
+    public function update(Admin $admin, Permission $permission)
     {
         return $admin->can('edit permissions');
     }
 
-    public function delete(Admin $admin, Role $role)
+    public function delete(Admin $admin, Permission $permission)
     {
         return $admin->can('delete permissions');
     }

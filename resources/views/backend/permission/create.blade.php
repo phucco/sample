@@ -36,6 +36,7 @@
                                         <div class="form-group">
                                             <label for="module">{{ __('Module') }}</label>
                                             <select class="form-control" name="module">
+                                                <option value="types">Types</option>
                                                 <option value="posts">Posts</option>
                                                 <option value="categories">Categories</option>
                                                 <option value="admins">Admins</option>

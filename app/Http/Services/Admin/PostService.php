@@ -1,9 +1,9 @@
 <?php
 
-namespace App\http\Services;
+namespace App\http\Services\Admin;
 
+use App\Http\Services\Admin\UploadService;
 use App\Models\Post;
-use App\Http\Services\UploadService;
 
 class PostService
 {

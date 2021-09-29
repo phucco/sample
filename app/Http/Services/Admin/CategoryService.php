@@ -1,8 +1,8 @@
 <?php
-namespace App\Http\Services;
+namespace App\Http\Services\Admin;
 
 use App\Models\Category;
-use App\Http\Services\UploadService;
+use App\Http\Services\Admin\UploadService;
 
 class CategoryService
 {

@@ -20,6 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->string('description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->integer('active')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

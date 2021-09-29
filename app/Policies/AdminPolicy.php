@@ -31,6 +31,6 @@ class AdminPolicy
 
     public function delete(Admin $admin)
     {
-        //
+        return $admin->can('delete admins');
     }
 }

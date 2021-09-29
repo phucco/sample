@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,11 +34,12 @@ Route::get('admin/logout', [LoginController::class, 'logout'])->name('admin.logo
 Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'showDashboard'])->name('dashboard');
 
-    Route::resource('admins', AdminController::class);    
-    Route::resource('posts', PostController::class);
-    Route::resource('categories', CategoryController::class);
+    Route::resource('admins', AdminController::class);
     Route::resource('roles', RoleController::class)->except(['destroy']);
     Route::resource('permissions', PermissionController::class)->except(['edit', 'update', 'destroy']);
+    Route::resource('posts', PostController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('types', TypeController::class);  
 
     Route::get('account', [AccountController::class, 'index'])->name('account');
 

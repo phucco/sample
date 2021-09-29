@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Services\CategoryService;
+use App\Http\Requests\Admin\CategoryRequest;
+use App\Http\Services\Admin\CategoryService;
 use App\Models\Category;
 
 class CategoryController extends Controller
@@ -33,7 +33,7 @@ class CategoryController extends Controller
     {
         $result = $this->categoryService->create($request);
 
-        if ($result) return redirect()->route('admin.categories.index')->with('success', 'New role has been created.');
+        if ($result) return redirect()->route('admin.categories.index')->with('success', 'New category has been created.');
 
         return back()->withInput()->with('error', 'Please try again later.');
     }

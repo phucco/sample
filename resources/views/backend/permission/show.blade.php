@@ -6,7 +6,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    @can('view permissions')
                     <a href="{{ route('admin.permissions.index') }}" class="btn btn-primary mb-3">{{ __('Return to Permission list') }}</a>
+                    @endcan
 
                     <div class="card card-light">
                         <div class="card-header">

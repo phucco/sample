@@ -6,7 +6,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    @can('view admins')
                     <a href="{{ route('admin.admins.index') }}" class="btn btn-primary mb-3">Return to Administrator List</a>
+                    @endcan
 
                     <div class="card card-light">
                         <div class="card-header">

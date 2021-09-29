@@ -6,7 +6,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    @can('create posts')
                     <a href="{{ route('admin.posts.create') }}" class="btn btn-primary mb-3">{{ __('Add new Post') }}</a>
+                    @endcan
 
                     <div class="card card-light">
                         <div class="card-header">
@@ -41,13 +43,22 @@
                                         <td>{{ $post->updated_at }}</td>
                                         <td>{{ $post->active == 1 ? 'Published' : 'Draft' }}</td>
                                         <td>
+                                            @can('delete posts')
                                             <form action="{{ route('admin.posts.destroy', $post) }}" method="post">
+                                            @endcan
+                                                @can('view posts')
                                                 <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.show', $post) }}"><i class="fas fa-eye"></i></a>
-                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit', $post) }}"><i class="fas fa-edit"></i></a>                                     
+                                                @endcan
+                                                @can('edit posts')
+                                                <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit', $post) }}"><i class="fas fa-edit"></i></a>
+                                                @endcan
+
+                                            @can('delete posts')                                    
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
                                             </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                     @endforeach

@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Services;
+namespace App\Http\Services\Admin;
 
 use Spatie\Permission\Models\Permission;
 
@@ -37,6 +37,6 @@ class PermissionService
 
 	public function getPermissionList()
 	{
-		return Permission::get('name');
+		return Permission::orderBy('id', 'asc')->get('name');
 	}
 }

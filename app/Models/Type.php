@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\MultiTenantModelTrait;
 
-class Category extends Model
+class Type extends Model
 {
     use HasFactory, SoftDeletes, MultiTenantModelTrait;
 

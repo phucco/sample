@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Services\RoleService;
-use App\Http\Services\PermissionService;
-use App\Http\Requests\RoleRequest;
-use Spatie\Permission\Models\Role;
-use App\Helpers\Helper;
+use App\Http\Requests\Admin\RoleRequest;
+use App\Http\Services\Admin\RoleService;
+use App\Http\Services\Admin\PermissionService;
+use App\Models\Role;
 
 class RoleController extends Controller
 {
