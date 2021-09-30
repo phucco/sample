@@ -2,7 +2,7 @@
 
 namespace App\Http\Services\Admin;
 
-use Spatie\Permission\Models\Permission;
+use App\Models\Permission;
 
 class PermissionService
 {

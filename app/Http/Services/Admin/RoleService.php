@@ -2,8 +2,8 @@
 
 namespace App\Http\Services\Admin;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use App\Models\Role;
+use App\Models\Permission;
 
 class RoleService
 {

@@ -15,7 +15,7 @@ class TypeController extends Controller
     public function __construct(TypeService $typeService)
     {
         $this->typeService = $typeService;
-        $this->authorizeResource(Type::class);
+        $this->authorizeResource(Type::class, 'type');
     }
 
     public function index()

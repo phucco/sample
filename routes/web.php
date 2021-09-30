@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -45,4 +46,6 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
 
     Route::post('upload/store', [UploadController::class, 'store']);
     Route::post('upload/delete', [UploadController::class, 'delete']);
+
+    Route::get('activities', [ActivityController::class, 'index'])->name('activities.index');
 });
