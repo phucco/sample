@@ -5,7 +5,11 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-        	    <div class="col-sm-12">
+        	    <div class="col-12">
+                    @can('view posts')
+                    <a href="{{ route('admin.posts.index') }}" class="btn btn-primary mb-3">{{ __('Return to Post list') }}</a>
+                    @endcan
+
                     <div class="card card-light">
                        <div class="card-header">
                             <h3 class="card-title">{{ __('Add new Post') }}</h3>

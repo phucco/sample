@@ -5,7 +5,11 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-12">
+                    @can('view roles')
+                    <a href="{{ route('admin.roles.index') }}" class="btn btn-primary mb-3">{{ __('Return to Role list') }}</a>
+                    @endcan
+
                     <div class="card card-light">
                        <div class="card-header">
                             <h3 class="card-title">{{ __('Edit Role: ') . $role->name }}</h3>
@@ -26,7 +30,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="permissions">{{ __('Permissions') }}</label>                                
+                                    <label for="permissions">{{ __('Permissions') }}</label>
                                     @foreach ($permissions as $permission)
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" value="{{ $permission->name }}" name="permissions[]" {{ ($role->hasPermissionTo($permission->name)) ? 'checked' : '' }}>

@@ -23,7 +23,8 @@ return [
      * You can specify an auth driver here that gets user models.
      * If this is null we'll use the default Laravel auth driver.
      */
-    'default_auth_driver' => null,
+    'default_auth_driver' => 'admin',
+    // 'default_auth_driver' => null,
 
     /*
      * If set to true, the subject returns soft deleted models.
@@ -35,7 +36,7 @@ return [
      * It should be implements the Spatie\Activitylog\Contracts\Activity interface
      * and extend Illuminate\Database\Eloquent\Model.
      */
-    'activity_model' => \Spatie\Activitylog\Models\Activity::class,
+    'activity_model' => \App\Models\Activity::class,
 
     /*
      * This is the name of the table that will be created by the migration and

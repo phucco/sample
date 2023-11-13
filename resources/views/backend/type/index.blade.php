@@ -25,7 +25,7 @@
                                         <th>{{ __('Title') }}</th>
                                         <th>{{ __('Description') }}</th>
                                         <th>{{ __('Thumbnail') }}</th>
-                                        <th>{{ __('Update at') }}</th>
+                                        <th>{{ __('Updated at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
@@ -48,7 +48,7 @@
                                                 @can('edit types')
                                                 <a class="btn btn-warning btn-sm" href="{{ route('admin.types.edit', $type) }}"><i class="fas fa-edit"></i></a>
                                                 @endcan
-                                            @can('delete types')                                  
+                                            @can('delete types')
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
@@ -65,15 +65,15 @@
                                         <th>{{ __('Title') }}</th>
                                         <th>{{ __('Description') }}</th>
                                         <th>{{ __('Thumbnail') }}</th>
-                                        <th>{{ __('Update at') }}</th>
+                                        <th>{{ __('Updated at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>
 
-                            
+
                             <div class="d-flex justify-content-center mt-3">
-                                {!! $types->links('pagination::bootstrap-4') !!}      
+                                {!! $types->links('pagination::bootstrap-4') !!}
                             </div>
                         </div>
                     </div>

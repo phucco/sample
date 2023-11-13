@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-12">
                     <div class="card card-light">
                        <div class="card-header">
                             <h3 class="card-title">{{ __('Add New Administrator') }}</h3>
@@ -38,7 +38,7 @@
                                     <div class="col-md-6">
                                         <label for="password-confirm">{{ __('Confirm Password') }}</label>
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="123321" required autocomplete="new-password">
-                                    </div>                                    
+                                    </div>
                                 </div>
 
                                 <div class="form-group">

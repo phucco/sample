@@ -19,12 +19,12 @@
                             @include('backend.layout.alert')
 
                             <p>{{ __('Title: ') . $category->title }}</p>
-                            <p>{{ __('Slug: ') . $type->slug }}</p>
+                            <p>{{ __('Slug: ') . $category->slug }}</p>
                             <p>{{ __('Description: ') . $category->description }}</p>
                             <p>{{ __('Active: ') . $category->active }}</p>
                             <p>{{ __('Thumbnail: ') }}</p>
-                            <img class="img-thumbnail" src="{{ $category->thumbnail }}">                            
-                            <p>{{ __('Created at: ') . $type->created_at }}</p>
+                            <img class="img-thumbnail" src="{{ $category->thumbnail }}">
+                            <p>{{ __('Created at: ') . $category->created_at }}</p>
                         </div>
                     </div>
                 </div>

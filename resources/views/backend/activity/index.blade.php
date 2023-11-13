@@ -17,13 +17,13 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Log Name') }}</th>
-                                        <th>{{ __('Administrator') }}</th>
-                                        <th>{{ __('Action') }}</th>
-                                        <th>{{ __('Subject') }}</th>
-                                        <th>{{ __('Subject ID') }}</th>
-                                        <th>{{ __('At') }}</th>
+                                        <th class="col-1">{{ __('ID') }}</th>
+                                        <th class="col-2">{{ __('Log Name') }}</th>
+                                        <th class="col-2">{{ __('Administrator') }}</th>
+                                        <th class="col-2">{{ __('Action') }}</th>
+                                        <th class="col-2">{{ __('Subject') }}</th>
+                                        <th class="col-1">{{ __('Subject ID') }}</th>
+                                        <th class="col-2">{{ __('At') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,7 +55,7 @@
                             </table>
 
                             <div class="d-flex justify-content-center mt-3">
-                                {!! $activities->links('pagination::bootstrap-4') !!}      
+                                {!! $activities->links('pagination::bootstrap-4') !!}
                             </div>
                         </div>
                     </div>

@@ -21,12 +21,12 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Title') }}</th>
-                                        <th>{{ __('Description') }}</th>
-                                        <th>{{ __('Thumbnail') }}</th>
-                                        <th>{{ __('Update at') }}</th>
-                                        <th>{{ __('Actions') }}</th>
+                                        <th class="col-1">{{ __('ID') }}</th>
+                                        <th class="col-2">{{ __('Title') }}</th>
+                                        <th class="col-3">{{ __('Description') }}</th>
+                                        <th class="col-2">{{ __('Thumbnail') }}</th>
+                                        <th class="col-2">{{ __('Updated at') }}</th>
+                                        <th class="col-2">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +48,7 @@
                                                 @can('edit categories')
                                                 <a class="btn btn-warning btn-sm" href="{{ route('admin.categories.edit', $category) }}"><i class="fas fa-edit"></i></a>
                                                 @endcan
-                                            @can('delete categories')                                  
+                                            @can('delete categories')
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
@@ -65,15 +65,15 @@
                                         <th>{{ __('Title') }}</th>
                                         <th>{{ __('Description') }}</th>
                                         <th>{{ __('Thumbnail') }}</th>
-                                        <th>{{ __('Update at') }}</th>
+                                        <th>{{ __('Updated at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>
 
-                            
+
                             <div class="d-flex justify-content-center mt-3">
-                                {!! $categories->links('pagination::bootstrap-4') !!}      
+                                {!! $categories->links('pagination::bootstrap-4') !!}
                             </div>
                         </div>
                     </div>

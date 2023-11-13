@@ -6,7 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-primary">
+                    @can('create products')
+                    <a href="{{ route('admin.products.add') }}" class="btn btn-primary mb-3">{{ __('Add new Product') }}</a>
+                    @endcan
+
+                    <div class="card card-light">
                         <div class="card-header">
                             <h3 class="card-title">{{ $siteTitle }}</h3>
                         </div>

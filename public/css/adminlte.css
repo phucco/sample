@@ -13034,6 +13034,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 80%;
 }
 
 .navbar-search-block .input-group {

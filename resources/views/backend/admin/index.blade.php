@@ -21,11 +21,11 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Email') }}</th>
-                                        <th>{{ __('Roles') }}</th>
-                                        <th>{{ __('Actions') }}</th>
+                                        <th class="col-1">{{ __('ID') }}</th>
+                                        <th class="col-3">{{ __('Name') }}</th>
+                                        <th class="col-3">{{ __('Email') }}</th>
+                                        <th class="col-3">{{ __('Roles') }}</th>
+                                        <th class="col-2">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,12 +46,12 @@
                                                 @can('edit admins')
                                                 <a class="btn btn-warning btn-sm" href="{{ route('admin.admins.edit', $admin) }}"><i class="fas fa-edit"></i></a>
                                                 @endcan
-                                            @can('delete admins')                                     
+                                            @can('delete admins')
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm delete-button" type="submit"><i class="fas fa-trash"></i></button>
                                             </form>
-                                            @endcan  
+                                            @endcan
                                         </td>
                                     </tr>
                                     @endforeach
@@ -69,7 +69,7 @@
                             </table>
 
                             <div class="d-flex justify-content-center mt-3">
-                                {!! $admins->links('pagination::bootstrap-4') !!}      
+                                {!! $admins->links('pagination::bootstrap-4') !!}
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,11 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-12">
+                    @can('view types')
+                    <a href="{{ route('admin.types.index') }}" class="btn btn-primary mb-3">{{ __('Return to Type list') }}</a>
+                    @endcan
+
                     <div class="card card-light">
                        <div class="card-header">
                             <h3 class="card-title">{{ __('Edit Type: ') . $type->title }}</h3>

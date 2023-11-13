@@ -5,8 +5,12 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-        	    <div class="col-sm-12">
-                    <div class="card card-primary">
+        	    <div class="col-12">
+                    @can('view products')
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-primary mb-3">{{ __('Return to Product list') }}</a>
+                    @endcan
+
+                    <div class="card card-light">
                        <div class="card-header">
                             <h3 class="card-title">{{ $siteTitle }}</h3>
                         </div>

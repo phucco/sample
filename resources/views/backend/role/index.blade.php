@@ -21,10 +21,10 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('ID') }}</th>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Update at') }}</th>
-                                        <th>{{ __('Actions') }}</th>
+                                        <th class="col-1">{{ __('ID') }}</th>
+                                        <th class="col-6">{{ __('Name') }}</th>
+                                        <th class="col-3">{{ __('Updated at') }}</th>
+                                        <th class="col-2">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,14 +50,14 @@
                                     <tr>
                                         <th>{{ __('ID') }}</th>
                                         <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Update at') }}</th>
+                                        <th>{{ __('Updated at') }}</th>
                                         <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>
 
                             <div class="d-flex justify-content-center mt-3">
-                                {!! $roles->links('pagination::bootstrap-4') !!}      
+                                {!! $roles->links('pagination::bootstrap-4') !!}
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-12">
                     <div class="card card-light">
                        <div class="card-header">
                             <h3 class="card-title">{{ __('Add new Permission') }}</h3>
@@ -45,7 +45,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>                                                                 
+                                </div>
                             </div>
 
                             <div class="card-footer">

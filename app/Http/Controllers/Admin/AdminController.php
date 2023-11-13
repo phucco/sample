@@ -12,7 +12,7 @@ use App\Models\Admin;
 class AdminController extends Controller
 {
     protected $adminService, $roleService;
-    
+
 	public function __construct(AdminService $adminService, RoleService $roleService)
 	{
 		$this->adminService = $adminService;
