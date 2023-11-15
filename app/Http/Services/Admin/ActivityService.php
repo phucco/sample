@@ -8,6 +8,6 @@ class ActivityService
 {
 	public function getAll()
 	{
-		return Activity::with('causer')->paginate(10);
+		return Activity::with('causer')->orderBy('created_at', 'desc')->paginate(10);
 	}
 }
